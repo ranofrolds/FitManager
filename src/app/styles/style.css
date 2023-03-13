@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+#login{
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0px 20px 20px 20px;
+}
+
+#botaoCadastrar, #botaoEntrar{
+    padding: 5px;
+    margin: 0 5px 0 5px;
+}

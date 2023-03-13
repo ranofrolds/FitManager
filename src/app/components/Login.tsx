@@ -1,6 +1,8 @@
+
+
 export default function Login() {
     return(
-    <div>
+    <div id="login">
         <h1>Login</h1>
         <label >
             Email:
@@ -16,7 +18,8 @@ export default function Login() {
         </label>
         <br />
         <br />
-        <button type="submit">Login</button>
+        <button id="botaoEntrar" type="submit">Entrar</button>
+        <button id="botaoCadastrar" type="submit">Cadastrar</button>
     </div>
     )
 }
