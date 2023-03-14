@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
 import "./styles/style.css";
-import "./pages/landingPage";
+import LandingPage from "./pages/LandingPage";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-root.render(<landingPage />);
+root.render(<LandingPage />);

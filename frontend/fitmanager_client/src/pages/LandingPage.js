@@ -1,4 +1,4 @@
-export default function landingPage(props) {
+export default function LandingPage(props) {
   return (
     <div>
       <h1>FitManager</h1>
