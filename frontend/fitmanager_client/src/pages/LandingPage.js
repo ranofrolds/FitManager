@@ -5,7 +5,8 @@ export default function LandingPage(props) {
     <div id="landing-div">
       <h1 id="titulo">FitManager</h1>
       <h2 id="subtitulo">
-        Bem-vindo ao gerenciador do aplicativo do FitManager
+        <span>Bem</span>-<span>vindo</span> ao gerenciador do aplicativo do
+        FitManager
       </h2>
       <div id="botoes">
         <button type="submit" id="entrar">
