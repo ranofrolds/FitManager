@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { SignupModel } from './signup.model';
+import { SignupModel } from '../models/signup.model';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
