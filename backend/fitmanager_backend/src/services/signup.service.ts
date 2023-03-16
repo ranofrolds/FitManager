@@ -6,7 +6,7 @@ import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
 interface User {
-  username: string;
+  cnpj: string;
   email: string;
   password: string;
 }
@@ -17,7 +17,7 @@ export class SignupService {
 
   async signup(user: User) {
     const newUser = new this.signupModel({
-      username: user.username,
+      cnpj: user.cnpj,
       email: user.email,
       password: await bcrypt.hash(user.password, 10),
     });

@@ -6,7 +6,7 @@ import { Document } from 'mongoose';
 @Schema()
 export class Signup {
   @Prop({unique: true})
-  username: string;
+  cnpj: string;
 
   @Prop({unique: true})
   email: string;
