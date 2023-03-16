@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { AppController } from './controllers/app.controller';
-import { AppService } from './app.service';
+import { AppController } from '../controller/app.controller';
+import { AppService } from '../services/app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SignupModule } from './signup/signup.module';
+import { SignupModule } from '../../signup/signup.module';
 
 @Module({
   imports: [

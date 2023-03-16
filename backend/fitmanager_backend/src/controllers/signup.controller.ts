@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Post } from '@nestjs/common';
-import { SignupDto } from '../signup/signup.dto';
-import { SignupService } from '../signup/signup.service';
+import { SignupDto } from '../dto/signup.dto';
+import { SignupService } from '../services/signup.service';
 
 @Controller('signup') // "/signup"
 export class SignupController {
