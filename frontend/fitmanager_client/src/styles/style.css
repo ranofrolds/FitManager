@@ -13,11 +13,7 @@ body{
     width: 100vw;
     height: 100vh;
     border-top: 1px #1b2027 solid;
-}
-
-#title{
-    margin-top: 100px;
-    font-size: 56px;
+    top: -100px;
 }
 
 #subtitle{

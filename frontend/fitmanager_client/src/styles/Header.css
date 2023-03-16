@@ -1,0 +1,15 @@
+#header{
+    display: flex;
+    flex-direction: row;
+}
+
+#title{
+    margin-top: 100px;
+    font-size: 56px;
+}
+
+#fitmanager-logo{
+    width: 169px;
+    height: 300px ;
+}
+

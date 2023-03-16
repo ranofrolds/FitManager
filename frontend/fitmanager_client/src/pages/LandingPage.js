@@ -1,9 +1,11 @@
 import "../styles/style.css";
+import "../assets/logo.png";
+import Header from "../components/Header";
 
 export default function LandingPage(props) {
   return (
     <div id="landing-div">
-      <h1 id="title">FitManager</h1>
+      <Header />
       <h2 id="subtitle">
         <span>Bem</span>-<span>vindo</span> ao gerenciador do aplicativo do
         FitManager
