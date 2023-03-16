@@ -25,7 +25,7 @@ export default function LandingPage(props) {
             <input type="password" required />
             <label>Senha</label>
           </div>
-          <div class="lembrar-senha">
+          <div class="remember-forgot">
             <label>
               <input type="checkbox" /> Lembre-se de mim
             </label>
