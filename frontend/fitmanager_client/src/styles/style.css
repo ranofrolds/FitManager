@@ -113,10 +113,6 @@ h2 span{
     text-decoration: underline;
 }
 
-.remember-forgot label input{
-    accent-color: ;
-}
-
 .botao{
     width: 60%;
     height: 40px;
@@ -128,7 +124,7 @@ h2 span{
     left: 70px;
     cursor: pointer;
     background-color: #ff5146;
-    border: 2px #1b2027 solid;
+    color: white;
     transition: .3s;
 }
 
