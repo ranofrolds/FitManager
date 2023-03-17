@@ -1,13 +1,13 @@
 import "../styles/style.css";
 import Header from "../components/Header";
 
-export default function LandingPage(props) {
+export default function Login(props) {
   return (
     <div id="landing-div">
       <Header />
       <h2 id="subtitle">
-        <span>Bem</span>-<span>vindo</span> ao gerenciador do aplicativo do
-        FitManager
+        <span>Bem</span>-<span>vindo</span> ao seu sistema de gerenciamento de
+        academias!
       </h2>
       <div id="container-login">
         <h2>Login</h2>
