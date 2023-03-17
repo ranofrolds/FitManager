@@ -127,3 +127,20 @@ h2 span{
 .botao:hover{
     transform: scale(1.1);
 }
+
+#register-div{
+    color: #1b2027;
+    position: relative;
+    top: 30px;
+    left: 35px;
+}
+
+#register-div p a{
+    color: #ff5146;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#register-div p a:hover{
+    text-decoration: underline;
+}

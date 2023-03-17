@@ -35,6 +35,11 @@ export default function Login(props) {
           <button type="submit" class="botao">
             Entrar
           </button>
+          <div id="register-div">
+            <p>
+              Não tem uma conta? <a href="./Register.jsx">Cadastre-se</a>
+            </p>
+          </div>
         </form>
       </div>
     </div>
