@@ -1,5 +1,4 @@
 import "../styles/style.css";
-import "../assets/logo.png";
 import Header from "../components/Header";
 
 export default function LandingPage(props) {
