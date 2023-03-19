@@ -39,7 +39,7 @@ export const Login = () => {
           </button>
           <div id="register-div">
             <p>
-              Não tem uma conta? <Link to="./Register.jsx"> Cadastre-se </Link>
+              Não tem uma conta? <Link to="./register"> Cadastre-se </Link>
             </p>
           </div>
         </form>
