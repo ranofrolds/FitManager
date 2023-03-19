@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "../../components/Header.js";
 
-import "../styles/style.css";
+import "../../styles/style.css";
 
 export const Login = () => {
   return (
