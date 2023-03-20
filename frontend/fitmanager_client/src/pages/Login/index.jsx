@@ -14,7 +14,7 @@ export const Login = () => {
     axios
       .post("http://localhost:8000/auth/login", {
         email: email,
-        password,
+        password
       })
       .then((res) => {
         console.log(res);
