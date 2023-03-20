@@ -1,7 +1,9 @@
-import "../styles/style.css";
-import Header from "../components/Header";
+import { Link } from "react-router-dom";
+import Header from "../../components/Header.js";
 
-export default function Login(props) {
+import "../../styles/style.css";
+
+export const Login = () => {
   return (
     <div id="landing-div">
       <Header />
@@ -37,11 +39,11 @@ export default function Login(props) {
           </button>
           <div id="register-div">
             <p>
-              Não tem uma conta? <a href="./Register.jsx">Cadastre-se</a>
+              Não tem uma conta? <Link to="./register"> Cadastre-se </Link>
             </p>
           </div>
         </form>
       </div>
     </div>
   );
-}
+};

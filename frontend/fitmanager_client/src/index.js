@@ -1,8 +1,10 @@
-import { createRoot } from "react-dom/client";
-import "./styles/style.css";
-import Login from "./pages/Login";
+import React from "react";
+import ReactDOM from "react-dom";
+import { App } from "./App.jsx";
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(<Login />);
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
