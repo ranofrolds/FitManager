@@ -139,7 +139,7 @@ h2 span{
     border: none;
     border-radius: 8px;
     position: relative;
-    top: 5%;
+    top: 20px;
     left: 20%;
     cursor: pointer;
     background-color: #ff5146;
@@ -153,9 +153,10 @@ h2 span{
 
 #register-div{
     color: #1b2027;
+    display: flex;
+    justify-content: center;
     position: relative;
     top: 30px;
-    left: 35px;
 }
 
 #register-div p a{

@@ -20,7 +20,7 @@ export const Register = () => {
             <span class="icon">
               <ion-icon name="storefront-outline"></ion-icon>
             </span>
-            <input type="text" required />
+            <input type="text" required value={name} />
             <label>Nome da Academia</label>
           </div>
 
@@ -28,7 +28,7 @@ export const Register = () => {
             <span class="icon">
               <ion-icon name="business-outline"></ion-icon>
             </span>
-            <input type="text" required />
+            <input type="text" required value={cnpj} />
             <label>CNPJ</label>
           </div>
 
@@ -36,7 +36,7 @@ export const Register = () => {
             <span class="icon">
               <ion-icon name="mail-outline"></ion-icon>
             </span>
-            <input type="email" required />
+            <input type="email" required value={email} />
             <label>Email</label>
           </div>
 
@@ -44,7 +44,7 @@ export const Register = () => {
             <span class="icon">
               <ion-icon name="lock-closed-outline"></ion-icon>
             </span>
-            <input type="password" required />
+            <input type="password" required value={password} />
             <label>Senha</label>
           </div>
 
@@ -53,7 +53,7 @@ export const Register = () => {
           </button>
           <div id="register-div">
             <p>
-              <Link to="/"> Ja possuo uma conta </Link>
+              Ja possui uma conta? <Link to="/"> Acessa-la </Link>
             </p>
           </div>
         </form>
