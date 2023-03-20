@@ -1,4 +1,4 @@
-import Chart from 'chart.js';
+import { Chart } from 'chart.js/auto';
 
 const ctx = document.getElementById('myChart') as HTMLCanvasElement;
 const myChart = new Chart(ctx, {
@@ -15,11 +15,18 @@ const myChart = new Chart(ctx, {
   },
   options: {
     scales: {
-      yAxes: [{
+      y: {
+        beginAtZero: true,
         ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
-  }
+          stepSize: 5,
+        },
+      },
+      x: {
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 20,
+        },
+      },
+    },
+  },
 });
