@@ -1,9 +1,30 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Header from "../../components/Header.jsx";
+import axios from "axios";
+
 
 import "../../styles/style.css";
 
 export const Login = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    axios.post("http://localhost:8000/auth/login", {
+      email: email,
+      password
+    })
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>{
+      console.log(err);
+    });
+  }
+
   return (
     <div id="main-div">
       <Header />
@@ -13,7 +34,7 @@ export const Login = () => {
       </h2>
       <div id="container-login">
         <h2>Login</h2>
-        <form action="#">
+        <form onSubmit={handleSubmit} action="#">
           <div class="input-box">
             <span class="icon">
               <ion-icon name="mail-outline"></ion-icon>

@@ -12,7 +12,6 @@ export const Register = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e)=>{
-    console.log("TESTE")
     e.preventDefault();
     axios.post("http://localhost:8000/auth/signup", {
       cnpj: cnpj,
