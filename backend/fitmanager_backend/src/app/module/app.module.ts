@@ -1,16 +1,19 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { AppController } from '../controller/app.controller';
+import { ConfigModule } from '@nestjs/config';
 import { AppService } from '../services/app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SignupModule } from '../../signup/signup.module';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://fitmanagerAdm:vpdjWOfeHhDE9xVq@fitmanagercluster.ntzxtha.mongodb.net/?retryWrites=true&w=majority',
-    ),
-    SignupModule,
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true,
+    }),
+    MongooseModule.forRoot(process.env.DB_URI),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

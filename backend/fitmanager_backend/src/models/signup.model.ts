@@ -12,6 +12,9 @@ export class Signup {
   email: string;
 
   @Prop()
+  name: string;
+
+  @Prop()
   password: string;
 }
 
