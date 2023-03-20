@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import Header from "../../components/Header.js";
+import Header from "../../components/Header.jsx";
 
 import "../../styles/style.css";
 
 export const Login = () => {
   return (
-    <div id="landing-div">
+    <div id="main-div">
       <Header />
       <h2 id="subtitle">
         <span>Bem</span>-<span>vindo</span> ao seu sistema de gerenciamento de

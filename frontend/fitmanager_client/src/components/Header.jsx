@@ -1,5 +1,5 @@
 import fitmanagerLogo from "../assets/logo-fitmanager.png";
-import "../styles/Header.css";
+import "../styles/style.css";
 
 export default function Header(props) {
   return (
