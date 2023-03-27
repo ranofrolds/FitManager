@@ -14,7 +14,7 @@ export const Login = () => {
     axios
       .post("http://localhost:8000/auth/login", {
         email: email,
-        password
+        password,
       })
       .then((res) => {
         console.log(res);
@@ -67,7 +67,9 @@ export const Login = () => {
             <a href="#">Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
-            Entrar
+            <Link class="escrita-botao" to="./home">
+              Entrar
+            </Link>
           </button>
           <div id="register-div">
             <p>
