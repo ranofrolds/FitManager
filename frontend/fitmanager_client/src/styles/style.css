@@ -173,3 +173,34 @@ h2 span{
 #register-div p a:hover{
     text-decoration: underline;
 }
+
+/* Section Component*/
+
+.section-div{
+    background-color: #ff5146;
+    height: 100px;
+    width: 300px;
+    border-radius: 16px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.section-div:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.section-title{
+    position: relative;
+    top: 20px;
+    font-size: 36px;
+}
+
+.section-subtitle{
+    position: relative;
+    bottom: 20px;
+    font-size: 20px;
+}
