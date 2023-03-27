@@ -176,16 +176,24 @@ h2 span{
 
 /* Section Component*/
 
+.section-grid{
+    display: flex;
+    flex-direction: column;
+}
+
 .section-div{
     background-color: #ff5146;
     height: 100px;
     width: 300px;
+    margin: 20px;
     border-radius: 16px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     transition: .3s;
+    position: relative;
+    top: 50px;
 }
 
 .section-div:hover{
@@ -195,12 +203,5 @@ h2 span{
 
 .section-title{
     position: relative;
-    top: 20px;
-    font-size: 36px;
-}
-
-.section-subtitle{
-    position: relative;
-    bottom: 20px;
-    font-size: 20px;
+    font-size: 32px;
 }
