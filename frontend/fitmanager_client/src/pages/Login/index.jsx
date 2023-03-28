@@ -64,7 +64,7 @@ export const Login = () => {
             <label>
               <input type="checkbox" /> Lembre-se de mim
             </label>
-            <a href="#">Esqueceu a senha?</a>
+            <a href>Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
             <Link class="escrita-botao" to="/home">
