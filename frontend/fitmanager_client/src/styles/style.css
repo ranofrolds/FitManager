@@ -226,3 +226,16 @@ h2 span{
     text-decoration-color: #ff5146;
 }
 
+#logout-button{
+    width: 120px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: white;
+    color: #1b2027;
+    border-radius: 16px;
+    border: none;
+    position: relative;
+    top: 40px;
+    left: 110px;
+}
