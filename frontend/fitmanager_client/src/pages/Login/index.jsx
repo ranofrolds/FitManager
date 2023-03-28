@@ -20,7 +20,7 @@ export const Login = () => {
       .then((res) => {
         const thirtyMinutes = 30 * 60 * 1000; // em milissegundos
         const expirationDate = new Date(Date.now() + thirtyMinutes);
-        
+
         const token = res.data.token;
 
         Cookies.set('auth_token', token, { expires: expirationDate });
@@ -75,7 +75,7 @@ export const Login = () => {
             <a href>Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
-            <Link class="escrita-botao" to="/home">
+            <Link class="escrita-botao">
               Entrar
             </Link>
           </button>
