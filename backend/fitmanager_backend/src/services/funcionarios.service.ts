@@ -11,8 +11,7 @@ import { FuncionarioDto } from '../dto/funcionarios.dto';
 export class FuncionarioService {
   constructor(
     @InjectModel(Funcionario.name)
-    private userModel: Model<Funcionario>,
-    private jwtService: JwtService,
+    private funcionarioModel: Model<Funcionario>,
   ) { }
 
   async CriarFuncionario(funcionarioDto: FuncionarioDto){
@@ -20,7 +19,7 @@ export class FuncionarioService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await this.userModel.create({
+    const user = await this.funcionarioModel.create({
       cpf,
       name,
       email,
