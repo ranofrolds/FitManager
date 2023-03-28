@@ -4,7 +4,7 @@ import { Document } from 'mongoose';
 @Schema({
   timestamps: true,
 })
-export class func extends Document {
+export class Funcionario extends Document {
   @Prop({ unique: [true, 'Duplicate cpf entered'] })
   cpf: string;
 
@@ -34,4 +34,4 @@ export class func extends Document {
 
 }
 
-export const FuncSchema = SchemaFactory.createForClass(func);
+export const FuncionarioSchema = SchemaFactory.createForClass(Funcionario);
