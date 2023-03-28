@@ -6,6 +6,8 @@ import { Home } from "../pages/Home";
 import { Workers } from "../pages/Workers";
 import { Customers } from "../pages/Customers";
 import ProtectedRoutes from "./ProtectedRoutes";
+import { Maintenance } from "../pages/Maintenance";
+import { Financial } from "../pages/Financial";
 
 export const AppRouter = () => {
   return (
@@ -18,6 +20,8 @@ export const AppRouter = () => {
           <Route path="/workers" element={<Workers />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/workers" element={<Workers />} />
+          <Route path="/maintenance" element={<Maintenance />} />
+          <Route path="/Financial" element={<Financial />} />
         </Route>
       </Routes>
     </Router>

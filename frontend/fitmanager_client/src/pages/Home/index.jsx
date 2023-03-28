@@ -9,8 +9,8 @@ export const Home = () => {
       <Header />
       <h3>Menu</h3>
       <div class="section-grid">
-        <Section title="Financeiro" />
-        <Section title="Manutenção" />
+        <Section title="Financeiro" link="/financial" />
+        <Section title="Manutenção" link="/maintenance" />
         <Section title="Alunos" link="/customers" />
         <Section title="Funcionários" link="/workers" />
       </div>
