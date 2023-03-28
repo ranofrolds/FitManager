@@ -198,11 +198,11 @@ h2 span{
     border-radius: 16px;
     background-color: #ff5146;
     color: white;
-    height: 100px;
+    height: 84px;
     width: 300px;
     margin: 20px;
     position: relative;
-    top: 20px;
+    top: 10px;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -243,4 +243,18 @@ h2 span{
 #logout-button:hover{
     text-decoration: dashed;
     cursor: pointer;
+}
+
+.white-box{
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.white-box h3{
+    color: #1b2027;
 }
