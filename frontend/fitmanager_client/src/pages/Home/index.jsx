@@ -10,11 +10,12 @@ export const Home = () => {
   return (
     <div id="main-div">
       <Header />
+      <h3>Menu</h3>
       <div class="section-grid">
         <Section title="Financeiro" />
         <Section title="Manutenção" />
         <Section title="Alunos" />
-        <Section title="Funcionários" />
+        <Section title="Funcionários" link="/workers" />
       </div>
     </div>
   );
