@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
 import { AlunoController } from '../controllers/alunos.controller';
 import { AlunoService } from '../services/alunos.service';
-import { JwtStrategy } from './jwt.strategy';
+import { AlunoStrategy } from '../strategy/alunos.strategy';
 import { AlunoSchema } from '../models/alunos.model';
 
 @Module({
@@ -25,7 +25,7 @@ import { AlunoSchema } from '../models/alunos.model';
     MongooseModule.forFeature([{ name: 'Aluno', schema: AlunoSchema }]),
   ],
   controllers: [AlunoController],
-  providers: [AlunoService, JwtStrategy],
-  exports: [JwtStrategy, PassportModule],
+  providers: [AlunoService, AlunoStrategy],
+  exports: [AlunoStrategy, PassportModule],
 })
 export class AlunoModule { }
