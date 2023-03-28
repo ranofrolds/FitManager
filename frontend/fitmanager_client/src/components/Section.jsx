@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 import "../styles/style.css";
 
 export default function Section(props) {
   return (
     <div class="section-div">
-      <h1 class="section-title">{props.title}</h1>
+      <h1 class="section-title">
+        <Link to={props.link}> {props.title} </Link>
+      </h1>
     </div>
   );
 }
