@@ -67,7 +67,7 @@ export const Login = () => {
             <a href="#">Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
-            <Link class="escrita-botao" to="./home">
+            <Link class="escrita-botao" to="/home">
               Entrar
             </Link>
           </button>
