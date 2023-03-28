@@ -6,7 +6,9 @@ export const Customers = () => {
   return (
     <div id="main-div">
       <Header />
-      <h3>Alunos</h3>
+      <div class="white-box">
+        <h3>Alunos</h3>
+      </div>
     </div>
   );
 };

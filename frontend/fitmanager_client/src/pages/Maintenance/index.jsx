@@ -6,7 +6,9 @@ export const Maintenance = () => {
   return (
     <div id="main-div">
       <Header />
-      <h3>Manutenção</h3>
+      <div class="white-box">
+        <h3>Manutenção</h3>
+      </div>
     </div>
   );
 };

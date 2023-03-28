@@ -6,7 +6,9 @@ export const Financial = () => {
   return (
     <div id="main-div">
       <Header />
-      <h3>Financeiro</h3>
+      <div class="white-box">
+        <h3>Financeiro</h3>
+      </div>
     </div>
   );
 };

@@ -9,12 +9,14 @@ export const Home = () => {
     <div id="main-div">
       <Header />
       <Logout />
-      <h3>Menu</h3>
-      <div class="section-grid">
-        <Section title="Financeiro" link="/financial" />
-        <Section title="Manutenção" link="/maintenance" />
-        <Section title="Alunos" link="/customers" />
-        <Section title="Funcionários" link="/workers" />
+      <div class="white-box">
+        <h3>Menu</h3>
+        <div class="section-grid">
+          <Section title="Financeiro" link="/financial" />
+          <Section title="Manutenção" link="/maintenance" />
+          <Section title="Alunos" link="/customers" />
+          <Section title="Funcionários" link="/workers" />
+        </div>
       </div>
     </div>
   );
