@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
 import axios from "axios";
@@ -9,6 +9,7 @@ import "../../styles/style.css";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +27,8 @@ export const Login = () => {
         Cookies.set('auth_token', token, { expires: expirationDate });
 
         console.log(res);
+
+        navigate('/home');
       })
       .catch((err) => {
         console.log(err);
