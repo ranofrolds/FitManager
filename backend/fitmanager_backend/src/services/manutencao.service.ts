@@ -5,7 +5,7 @@ import { Manutencao } from '../models/manutencao.model';
 import { ManutencaoDto } from '../dto/manutencao.dto';
 
 @Injectable()
-export class FuncionarioService {
+export class ManutencaoService {
   constructor(
     @InjectModel(Manutencao.name)
     private ManutencaoModel: Model<Manutencao>,

@@ -248,8 +248,18 @@ h2 span{
     align-items: center;
     display: flex;
     flex-direction: column;
+    position: relative;
+    top: 10px;
 }
 
 .white-box h3{
     color: #1b2027;
+}
+
+.logout-div{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

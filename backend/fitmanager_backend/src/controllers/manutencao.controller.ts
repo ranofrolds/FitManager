@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ManutencaoService } from '../services/manutencao.service';
-import { ManutecaoDto } from '../dto/manutencao.dto';
+import { ManutencaoDto } from '../dto/manutencao.dto';
 
 @Controller('manutencao')
 export class ManutencaoController {
