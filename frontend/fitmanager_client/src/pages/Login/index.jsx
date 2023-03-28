@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
 import axios from "axios";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 import "../../styles/style.css";
 
@@ -23,7 +23,7 @@ export const Login = () => {
 
         const token = res.data.token;
 
-        Cookies.set('auth_token', token, { expires: expirationDate });
+        Cookies.set("auth_token", token, { expires: expirationDate });
 
         console.log(res);
       })
@@ -75,9 +75,7 @@ export const Login = () => {
             <a href>Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
-            <Link class="escrita-botao">
-              Entrar
-            </Link>
+            <Link class="escrita-botao">Entrar</Link>
           </button>
           <div id="register-div">
             <p>
