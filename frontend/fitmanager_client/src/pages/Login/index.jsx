@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 import "../../styles/style.css";
 
@@ -17,6 +18,13 @@ export const Login = () => {
         password,
       })
       .then((res) => {
+        const thirtyMinutes = 30 * 60 * 1000; // em milissegundos
+        const expirationDate = new Date(Date.now() + thirtyMinutes);
+        
+        const token = res.data.token;
+
+        Cookies.set('auth_token', token, { expires: expirationDate });
+
         console.log(res);
       })
       .catch((err) => {

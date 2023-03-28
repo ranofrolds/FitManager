@@ -17,7 +17,7 @@ export const Register = () => {
       cnpj: cnpj,
       name: name,
       email: email,
-      password
+      password:password
     })
     .then((res)=>{
       console.log(res);

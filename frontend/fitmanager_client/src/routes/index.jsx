@@ -5,6 +5,7 @@ import { Register } from "../pages/Register";
 import { Home } from "../pages/Home";
 import { Workers } from "../pages/Workers";
 import { Customers } from "../pages/Customers";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 export const AppRouter = () => {
   return (
@@ -12,10 +13,12 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/workers" element={<Workers />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/workers" element={<Workers />} />
+        <Route element={<ProtectedRoutes/>}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/workers" element={<Workers />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/workers" element={<Workers />} />
+        </Route>
       </Routes>
     </Router>
   );
