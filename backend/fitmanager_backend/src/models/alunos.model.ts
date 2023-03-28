@@ -4,18 +4,21 @@ import { Document } from 'mongoose';
 @Schema({
   timestamps: true,
 })
-export class User extends Document {
-  @Prop({ unique: [true, 'Duplicate cpf entered'] })
-  cpf: string;
-
-  @Prop({ unique: [true, 'Duplicate email entered'] })
-  email: string;
-
-  @Prop()
+export class Aluno extends Document {
+  @Prop({ unique: [true, 'Duplicate name entered'] })
   name: string;
 
   @Prop()
-  password: string;
+  plano: string;
+
+  @Prop()
+  professor: string;
+
+  @Prop()
+  telefone: string;
+
+  @Prop()
+  idade: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const AlunoSchema = SchemaFactory.createForClass(Aluno);
