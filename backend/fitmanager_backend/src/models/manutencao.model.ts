@@ -4,7 +4,7 @@ import { Document } from 'mongoose';
 @Schema({
   timestamps: true,
 })
-export class manu extends Document {
+export class Manutencao extends Document {
   @Prop({ unique: [true, 'Duplicate cnpj entered'] })
   cnpj: string;
 
@@ -16,4 +16,4 @@ export class manu extends Document {
 
 }
 
-export const Manu = SchemaFactory.createForClass(manu);
+export const ManutencaoSchema = SchemaFactory.createForClass(Manutencao);
