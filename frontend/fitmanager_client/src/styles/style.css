@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 h1 a{
@@ -192,27 +193,29 @@ h2 span{
     flex-direction: column;
 }
 
-.section-div{
+.section-div button{
+    border: none;
+    border-radius: 16px;
     background-color: #ff5146;
+    color: white;
     height: 100px;
     width: 300px;
     margin: 20px;
-    border-radius: 16px;
+    position: relative;
+    top: 20px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     transition: .3s;
-    position: relative;
-    top: 30px;
 }
 
-.section-div:hover{
+.section-div button:hover{
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.section-title{
+.section-title button{
     position: relative;
     font-size: 32px;
 }
@@ -235,4 +238,9 @@ h2 span{
     color: white;
     border-radius: 16px;
     border: none;
+}
+
+#logout-button:hover{
+    text-decoration: dashed;
+    cursor: pointer;
 }
