@@ -15,7 +15,7 @@ export const Login = () => {
     axios
       .post("http://localhost:8000/auth/login", {
         email: email,
-        password,
+        password:password,
       })
       .then((res) => {
         const thirtyMinutes = 30 * 60 * 1000; // em milissegundos
