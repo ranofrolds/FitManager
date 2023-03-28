@@ -253,3 +253,11 @@ h2 span{
 .white-box h3{
     color: #1b2027;
 }
+
+.logout-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: white 1px solid;
+}
