@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
 import axios from "axios";
@@ -10,6 +10,7 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -21,6 +22,7 @@ export const Register = () => {
     })
     .then((res)=>{
       console.log(res);
+      navigate('/');
     })
     .catch((err)=>{
       console.log(err);
