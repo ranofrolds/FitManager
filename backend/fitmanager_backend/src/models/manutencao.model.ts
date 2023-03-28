@@ -6,13 +6,13 @@ import { Document } from 'mongoose';
 })
 export class Manutencao extends Document {
   @Prop({ unique: [true, 'Duplicate cnpj entered'] })
-  cnpj: string;
+  cnpjAcad: string;
 
   @Prop({ unique: [true, 'Duplicate phone entered'] })
-  phone: string;
+  phoneEmpresa: string;
 
   @Prop()
-  name: string;
+  equipamento: string;
 
 }
 

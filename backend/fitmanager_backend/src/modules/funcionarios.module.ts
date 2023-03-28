@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
 import { FuncionarioController } from '../controllers/funcionarios.controller';
 import { FuncionarioService } from '../services/funcionarios.service';
+import { JwtStrategy } from '../auth/jwt.strategy';
 import { FuncionarioSchema } from '../models/funcionarios.model';
 
 @Module({
@@ -12,6 +11,7 @@ import { FuncionarioSchema } from '../models/funcionarios.model';
     MongooseModule.forFeature([{ name: 'Funcionario', schema: FuncionarioSchema }]),
   ],
   controllers: [FuncionarioController],
-  providers: [FuncionarioService],
+  providers: [FuncionarioService, JwtStrategy],
+  exports: [JwtStrategy, PassportModule],
 })
 export class FuncionarioModule { }
