@@ -11,7 +11,7 @@ export const Home = () => {
       <div class="section-grid">
         <Section title="Financeiro" />
         <Section title="Manutenção" />
-        <Section title="Alunos" />
+        <Section title="Alunos" link="/customers" />
         <Section title="Funcionários" link="/workers" />
       </div>
     </div>
