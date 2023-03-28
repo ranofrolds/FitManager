@@ -5,7 +5,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
 import { ManutencaoController } from '../controllers/manutencao.controller';
 import { ManutencaoService } from '../services/manutencao.service';
-import { ManutencaoStrategy } from '../strategy/manutencao.strategy';
 import { ManutencaoSchema } from '../models/manutencao.model';
 
 @Module({
@@ -22,10 +21,6 @@ import { ManutencaoSchema } from '../models/manutencao.model';
         };
       },
     }),
-    MongooseModule.forFeature([{ name: 'Manutencao', schema: ManutencaoSchema }]),
-  ],
-  controllers: [ManutencaoController],
-  providers: [ManutencaoService, ManutencaoStrategy],
-  exports: [ManutencaoStrategy, PassportModule],
+    MongooseModule.forFeature([{ name: 'Manutencao', schema: ManutencaoSchema }])]
 })
 export class FuncionarioModule { }
