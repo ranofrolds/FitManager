@@ -1,24 +1,21 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User } from '../models/user.model';
+import { Aluno } from '../models/alunos.model';
 
-import * as bcrypt from 'bcrypt';
-import { JwtService } from '@nestjs/jwt';
 import { AlunoDto } from '../dto/alunos.dto';
 
 @Injectable()
 export class AlunoService {
   constructor(
-    @InjectModel(User.name)
-    private userModel: Model<User>,
-    private jwtService: JwtService,
+    @InjectModel(Aluno.name)
+    private alunoModel: Model<Aluno>,
   ) { }
 
   async CadastrarAluno(alunoDto: AlunoDto){
     const { name, plano, professor, telefone, idade } = alunoDto;
 
-    const user = await this.userModel.create({
+    const user = await this.alunoModel.create({
       name,
       plano,
       professor,
