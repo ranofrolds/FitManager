@@ -18,7 +18,7 @@ export class AlunoService {
   async CadastrarAluno(alunoDto: AlunoDto){
     const { name, plano, professor, telefone, idade } = alunoDto;
 
-    const user = await this.alunoModel.create({
+    const aluno = await this.alunoModel.create({
       name,
       plano,
       professor,

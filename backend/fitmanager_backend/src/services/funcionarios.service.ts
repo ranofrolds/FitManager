@@ -19,7 +19,7 @@ export class FuncionarioService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await this.funcionarioModel.create({
+    const funcionario = await this.funcionarioModel.create({
       cpf,
       name,
       email,
