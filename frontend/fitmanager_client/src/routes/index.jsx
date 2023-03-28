@@ -15,13 +15,13 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route element={<ProtectedRoutes/>}>
+        <Route element={<ProtectedRoutes />}>
           <Route path="/home" element={<Home />} />
           <Route path="/workers" element={<Workers />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/workers" element={<Workers />} />
           <Route path="/maintenance" element={<Maintenance />} />
-          <Route path="/Financial" element={<Financial />} />
+          <Route path="/financial" element={<Financial />} />
         </Route>
       </Routes>
     </Router>
