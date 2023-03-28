@@ -3,7 +3,7 @@ import { Navigate } from 'react-router'
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
 import axios from "axios";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 import "../../styles/style.css";
 
