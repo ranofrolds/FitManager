@@ -15,6 +15,9 @@ export class Funcionario extends Document {
   phone: string;
 
   @Prop()
+  academia: string;
+
+  @Prop()
   name: string;
 
   @Prop()

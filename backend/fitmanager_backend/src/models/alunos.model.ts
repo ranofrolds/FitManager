@@ -5,8 +5,23 @@ import { Document } from 'mongoose';
   timestamps: true,
 })
 export class Aluno extends Document {
-  @Prop({ unique: [true, 'Duplicate name entered'] })
+  @Prop({ unique: [true, 'Duplicate cpf entered'] })
+  cpf: string;
+
+  @Prop({ unique: [true, 'Duplicate email entered'] })
+  email: string;
+
+  @Prop({ unique: [true, 'Duplicate phone entered'] })
+  phone: string;
+
+  @Prop()
+  academia: string;
+
+  @Prop()
   name: string;
+
+  @Prop()
+  password: string;
 
   @Prop()
   plano: string;
@@ -15,10 +30,10 @@ export class Aluno extends Document {
   professor: string;
 
   @Prop()
-  telefone: string;
+  frequency: string;
 
   @Prop()
-  idade: string;
+  dataNascimento: string;
 }
 
 export const AlunoSchema = SchemaFactory.createForClass(Aluno);

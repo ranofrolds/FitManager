@@ -6,8 +6,8 @@ import { ManutencaoDto } from '../dto/manutencao.dto';
 export class ManutencaoController {
   constructor(private manutencaoService: ManutencaoService) {}
 
-  @Post('/manutencao')
-  funcionario(@Body() ManutencaoDto: ManutencaoDto){
-    return this.manutencaoService.CriarManutencao(ManutencaoDto);
+  @Post('/create')
+  async createManutencao(@Body() ManutencaoDto: ManutencaoDto){
+    return this.manutencaoService.criarManutencao(ManutencaoDto);
   }
 }

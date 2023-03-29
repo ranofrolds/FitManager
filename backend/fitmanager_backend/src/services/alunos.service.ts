@@ -3,33 +3,52 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Aluno } from '../models/alunos.model';
 import { AlunoDto } from '../dto/alunos.dto';
-
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AlunoService {
   constructor(
     @InjectModel(Aluno.name)
     private alunoModel: Model<Aluno>,
-  ) { }
+  ) {}
 
-  async atualizaraluno(id: string, alunoDto: AlunoDto): Promise<Aluno> {
-    const attAluno = await this.alunoModel.findByIdAndUpdate(id, alunoDto, { new: true }).exec();
+  async atualizarAluno(id: string, alunoDto: AlunoDto): Promise<Aluno> {
+    const attAluno = await this.alunoModel
+      .findByIdAndUpdate(id, alunoDto, { new: true })
+      .exec();
     return attAluno;
   }
 
-  async removeralunoPorId(id: string){
+  async removerAlunoPorId(id: string) {
     await this.alunoModel.findByIdAndRemove(id);
   }
 
-  async cadastrarAluno(alunoDto: AlunoDto){
-    const { name, plano, professor, telefone, idade } = alunoDto;
+  async cadastrarAluno(alunoDto: AlunoDto) {
 
-    const user = await this.alunoModel.create({
+    const {
+      cpf,
       name,
+      email,
+      password,
       plano,
       professor,
-      telefone,
-      idade,
+      dataNascimento,
+      phone,
+      frequency,
+    } = alunoDto;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const aluno = await this.alunoModel.create({
+      cpf,
+      name,
+      email,
+      password:hashedPassword,
+      plano,
+      professor,
+      dataNascimento,
+      phone,
+      frequency,
     });
-  } 
+  }
 }

@@ -11,7 +11,6 @@ import { FuncionarioSchema } from '../models/funcionarios.model';
     MongooseModule.forFeature([{ name: 'Funcionario', schema: FuncionarioSchema }]),
   ],
   controllers: [FuncionarioController],
-  providers: [FuncionarioService, JwtStrategy],
-  exports: [JwtStrategy, PassportModule],
+  providers: [FuncionarioService],
 })
 export class FuncionarioModule { }

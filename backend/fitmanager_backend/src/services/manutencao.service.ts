@@ -11,10 +11,10 @@ export class ManutencaoService {
     private ManutencaoModel: Model<Manutencao>,
   ) { }
 
-  async CriarManutencao(manutencaoDto: ManutencaoDto){
+  async criarManutencao(manutencaoDto: ManutencaoDto){
     const { cnpjAcad, equipamento, phoneEmpresa } = manutencaoDto;
 
-    const user = await this.ManutencaoModel.create({
+    const manutencao = await this.ManutencaoModel.create({
       cnpjAcad,
       equipamento,
       phoneEmpresa

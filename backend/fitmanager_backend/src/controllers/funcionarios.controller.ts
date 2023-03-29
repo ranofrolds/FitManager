@@ -17,12 +17,12 @@ export class FuncionarioController {
   }
 
   @Post('/update/:id')
-  async atualizarFuncionario(@Param('id') id:string, @Body() FuncionarioDto: FuncionarioDto){
-    return this.funcionarioService.atualizarFuncionario(id, FuncionarioDto);
+  async atualizarFuncionario(@Param('id') id:string, @Body() funcionarioDto: FuncionarioDto){
+    return this.funcionarioService.atualizarFuncionario(id, funcionarioDto);
   }
 
   @Get('/read/:id')
   async listarFuncionarios(@Param('id') idAcademia:string){
-    
+
   }
 }

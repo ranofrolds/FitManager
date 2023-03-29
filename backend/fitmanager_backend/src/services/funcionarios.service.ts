@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { Funcionario } from '../models/funcionarios.model';
 import * as bcrypt from 'bcrypt';
 import { FuncionarioDto } from '../dto/funcionario.dto';
-import { IFuncionario } from 'src/interface/funcionarios.interface';
+// import { IFuncionario } from 'src/interface/funcionarios.interface';
 
 @Injectable()
 export class FuncionarioService {
@@ -27,7 +27,7 @@ export class FuncionarioService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await this.funcionarioModel.create({
+    const funcionario = await this.funcionarioModel.create({
       cpf,
       name,
       email,
@@ -40,13 +40,13 @@ export class FuncionarioService {
     });
   }
 
-  async getFuncionarios():Promise<IFuncionario[]>{
-    const funcionarioData = await this.funcionarioModel.find()
-    if(!funcionarioData || funcionarioData.length == 0){
-      throw new NotFoundException("Funcionario data not found")
-    }
-    return funcionarioData
-  }
+  // async getFuncionarios():Promise<IFuncionario[]>{
+  //   const funcionarioData = await this.funcionarioModel.find()
+  //   if(!funcionarioData || funcionarioData.length == 0){
+  //     throw new NotFoundException("Funcionario data not found")
+  //   }
+  //   return funcionarioData
+  // }
   
   
 }
