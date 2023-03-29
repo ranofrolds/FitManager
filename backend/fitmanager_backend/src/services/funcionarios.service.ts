@@ -40,13 +40,10 @@ export class FuncionarioService {
     });
   }
 
-  // async getFuncionarios():Promise<IFuncionario[]>{
-  //   const funcionarioData = await this.funcionarioModel.find()
-  //   if(!funcionarioData || funcionarioData.length == 0){
-  //     throw new NotFoundException("Funcionario data not found")
-  //   }
-  //   return funcionarioData
-  // }
-  
-  
+  async lerFuncionario(id: string){
+    const readFuncionario = await this.funcionarioModel.find();
+    if(!readFuncionario || readFuncionario.length == 0){
+      throw new NotFoundException("Funcionario not found")
+    }
+  }
 }

@@ -23,6 +23,11 @@ export class AlunoService {
     await this.alunoModel.findByIdAndRemove(id);
   }
 
+  async lerAlunoPorIdAcad(idAcademia: string){
+    const readAluno = await this.alunoModel.findById(idAcademia);
+    return readAluno;
+  }
+
   async cadastrarAluno(alunoDto: AlunoDto) {
 
     const {
