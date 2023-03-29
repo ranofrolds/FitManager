@@ -1,9 +1,10 @@
-import { Injectable} from '@nestjs/common';
+import { Injectable, NotFoundException} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Funcionario } from '../models/funcionarios.model';
 import * as bcrypt from 'bcrypt';
 import { FuncionarioDto } from '../dto/funcionarios.dto';
+import { IFuncionario } from 'src/interface/funcionarios.interface';
 
 @Injectable()
 export class FuncionarioService {
@@ -17,7 +18,7 @@ export class FuncionarioService {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await this.FuncionarioModel.create({
+    const funcionario = await this.FuncionarioModel.create({
       cpf,
       name,
       email,
@@ -29,4 +30,14 @@ export class FuncionarioService {
       frequency
     });
   }
+
+  async getFuncionarios():Promise<IFuncionario[]>{
+    const funcionarioData = await this.FuncionarioModel.find()
+    if(!funcionarioData || funcionarioData.lenght == 0){
+      throw new NotFoundException("Funcionario data not found")
+    }
+    return funcionarioData
+  }
+  
+  
 }
