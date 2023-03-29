@@ -309,3 +309,7 @@ input[type="number"] {
     cursor: pointer;
     text-decoration: underline;
   }
+
+  .botao a{
+    text-decoration: none;
+  }

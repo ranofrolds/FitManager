@@ -6,7 +6,6 @@ import Cookies from "js-cookie";
 
 import "../../styles/style.css";
 
-
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +16,7 @@ export const Login = () => {
     axiosInstance
       .post("/auth/login", {
         email: email,
-        password:password,
+        password: password,
       })
       .then((res) => {
         const thirtyMinutes = 30 * 60 * 1000; // em milissegundos
@@ -25,11 +24,11 @@ export const Login = () => {
 
         const token = res.data.token;
 
-        Cookies.set('auth_token', token, { expires: expirationDate });
+        Cookies.set("auth_token", token, { expires: expirationDate });
 
         console.log(res);
 
-        navigate('/home');
+        navigate("/home");
       })
       .catch((err) => {
         console.log(err);
@@ -79,7 +78,7 @@ export const Login = () => {
             <a href>Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
-            <Link class="escrita-botao">
+            <Link class="escrita-botao" className="text-white">
               Entrar
             </Link>
           </button>
@@ -92,7 +91,4 @@ export const Login = () => {
       </div>
     </div>
   );
-  
-
-  
 };
