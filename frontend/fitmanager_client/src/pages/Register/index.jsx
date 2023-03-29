@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
-import axios from "axios";
+import axiosInstance from "../../instances/axiosInstances.jsx";
 
 import "../../styles/style.css";
 
@@ -14,7 +14,7 @@ export const Register = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault();
-    axios.post("http://localhost:8000/auth/signup", {
+    axiosInstance.post("/auth/signup", {
       cnpj: cnpj,
       name: name,
       email: email,

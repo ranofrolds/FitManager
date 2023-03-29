@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import axios from "axios";
-
+import axiosInstance from '../instances/axiosInstances';
 
 import "../styles/style.css";
+
 
 const logout = () => {
   Cookies.remove("auth_token");
@@ -21,8 +21,8 @@ export default function Logout() {
     
     const id=decodedPayload.id;
 
-    axios
-      .get(`http://localhost:8000/users/${id}`)
+    axiosInstance
+      .get(`/users/${id}`)
       .then((res) => {
         setUser('Olá, '+res.data.name)
       })

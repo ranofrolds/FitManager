@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
-import axios from "axios";
+import axiosInstance from "../../instances/axiosInstances.jsx";
 import Cookies from "js-cookie";
 
 import "../../styles/style.css";
+
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,8 +14,8 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8000/auth/login", {
+    axiosInstance
+      .post("/auth/login", {
         email: email,
         password:password,
       })
