@@ -12,7 +12,16 @@ export class AlunoService {
     private alunoModel: Model<Aluno>,
   ) { }
 
-  async CadastrarAluno(alunoDto: AlunoDto){
+  async atualizaraluno(id: string, alunoDto: AlunoDto): Promise<Aluno> {
+    const attAluno = await this.alunoModel.findByIdAndUpdate(id, alunoDto, { new: true }).exec();
+    return attAluno;
+  }
+
+  async removeralunoPorId(id: string){
+    await this.alunoModel.findByIdAndRemove(id);
+  }
+
+  async cadastrarAluno(alunoDto: AlunoDto){
     const { name, plano, professor, telefone, idade } = alunoDto;
 
     const user = await this.alunoModel.create({
