@@ -263,3 +263,44 @@ h2 span{
     justify-content: center;
     align-items: center;
 }
+
+/* Remover as setas do input de number */
+input[type="number"] {
+    -moz-appearance: textfield; /* para Firefox */
+    appearance: textfield;
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  #save-button{
+    font-size: 24px;
+    color: white;
+    background-color: #ff5146;
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 100px;
+    margin-right: 10px;
+    transition: .3s;
+  }
+
+  #save-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  #cancel-button{
+    font-size: 20px;
+    color: #1b2027;
+    background-color: transparent;
+    border: none;
+  }
+
+  #cancel-button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
