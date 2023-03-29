@@ -23,7 +23,7 @@ export class FuncionarioService {
   }
 
   async criarFuncionario(funcionarioDto: FuncionarioDto){
-    const { cpf, name, email, password, salario, category, dataNascimento, phone, frequency } = funcionarioDto;
+    const { cpf, name, email, password, salario, category, dataNascimento, phone } = funcionarioDto;
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -36,7 +36,6 @@ export class FuncionarioService {
       category,
       dataNascimento,
       phone,
-      frequency
     });
   }
 

@@ -35,9 +35,9 @@ export class FuncionarioDto {
   @IsString()
   readonly category: string;
 
-  @IsNotEmpty()
-  @IsString()
-  readonly frequency: string;
+  // @IsNotEmpty()
+  // @IsString()
+  // readonly frequency: string;
 
   @IsNotEmpty()
   @IsString()
