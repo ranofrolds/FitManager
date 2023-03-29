@@ -35,9 +35,9 @@ export class AlunoDto{
   @IsString()
   readonly professor: string;
 
-  @IsNotEmpty()
-  @IsString()
-  readonly frequency: string;
+  // @IsNotEmpty()
+  // @IsString()
+  // readonly frequency: string;
 
   @IsNotEmpty()
   @IsString()

@@ -33,8 +33,7 @@ export class AlunoService {
       plano,
       professor,
       dataNascimento,
-      phone,
-      frequency,
+      phone
     } = alunoDto;
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -48,7 +47,6 @@ export class AlunoService {
       professor,
       dataNascimento,
       phone,
-      frequency,
     });
   }
 }
