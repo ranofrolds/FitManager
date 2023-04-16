@@ -261,6 +261,18 @@ h2 span{
     color: #1b2027;
 }
 
+.white-flex{
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 10px;
+}
+
 .logout-div{
     font-size: 20px;
     display: flex;
