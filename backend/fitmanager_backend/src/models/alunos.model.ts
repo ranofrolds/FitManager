@@ -29,8 +29,8 @@ export class Aluno extends Document {
   @Prop()
   professor: string;
 
-  @Prop()
-  frequency: string;
+  // @Prop()
+  // frequency: string;
 
   @Prop()
   dataNascimento: string;
