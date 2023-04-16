@@ -71,124 +71,126 @@ export const Customers = () => {
     <div id="main-div">
       <Header />
       <Logout />
-      <div class="white-box">
-        <Flex>
-          <Box maxW={800} w="100%" h="100vh" py={10} px={2}>
-            <Button
-              colorScheme="blue"
-              onClick={() => [setDataEdit({}), onOpen()]}
-            >
-              NOVO CADASTRO
-            </Button>
+      <Flex
+        className="white-flex"
+        maxH={600}
+        h="100vh"
+        align="center"
+        justify="center"
+        fontSize="20px"
+      >
+        <Box maxW={1100} w="100%" h="100vh" py={10} px={2}>
+          <Button colorScheme="red" onClick={() => [setDataEdit({}), onOpen()]}>
+            NOVO CADASTRO
+          </Button>
 
-            <Box overflowY="auto" height="100%">
-              <Table mt="6">
-                <Thead>
-                  <Tr>
-                    <Th maxW={300} fontSize="16px">
-                      CPF
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      EMAIL
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      PHONE
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      ACADEMIA
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      NOME
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      SENHA
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      PLANO
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      PROFESSOR
-                    </Th>
-                    <Th maxW={300} fontSize="16px">
-                      DATA NASCIMENTO
-                    </Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {data.map(
-                    (
-                      {
-                        cpf,
-                        email,
-                        phone,
-                        academia,
-                        name,
-                        password,
-                        plano,
-                        professor,
-                        dataNascimento,
-                      },
-                      index
-                    ) => (
-                      <Tr
-                        key={index}
-                        cursor="pointer "
-                        _hover={{ bg: "gray.100" }}
-                      >
-                        <Td maxW={300}>{cpf}</Td>
-                        <Td maxW={300}>{email}</Td>
-                        <Td maxW={300}>{phone}</Td>
-                        <Td maxW={300}>{academia}</Td>
-                        <Td maxW={300}>{name}</Td>
-                        <Td maxW={300}>{password}</Td>
-                        <Td maxW={300}>{plano}</Td>
-                        <Td maxW={300}>{professor}</Td>
-                        <Td maxW={300}>{dataNascimento}</Td>
+          <Box overflowY="auto" height="100%">
+            <Table mt="9">
+              <Thead>
+                <Tr>
+                  <Th maxW={300} fontSize="16px">
+                    CPF
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    EMAIL
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    PHONE
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    ACADEMIA
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    NOME
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    SENHA
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    PLANO
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    PROFESSOR
+                  </Th>
+                  <Th maxW={300} fontSize="16px">
+                    DATA NASCIMENTO
+                  </Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {data.map(
+                  (
+                    {
+                      cpf,
+                      email,
+                      phone,
+                      academia,
+                      name,
+                      password,
+                      plano,
+                      professor,
+                      dataNascimento,
+                    },
+                    index
+                  ) => (
+                    <Tr
+                      key={index}
+                      cursor="pointer "
+                      _hover={{ bg: "gray.100" }}
+                    >
+                      <Td maxW={300}>{cpf}</Td>
+                      <Td maxW={300}>{email}</Td>
+                      <Td maxW={300}>{phone}</Td>
+                      <Td maxW={300}>{academia}</Td>
+                      <Td maxW={300}>{name}</Td>
+                      <Td maxW={300}>{password}</Td>
+                      <Td maxW={300}>{plano}</Td>
+                      <Td maxW={300}>{professor}</Td>
+                      <Td maxW={300}>{dataNascimento}</Td>
 
-                        <EditIcon
+                      <EditIcon
+                        fontSize={20}
+                        onClick={() => [
+                          setDataEdit({
+                            cpf,
+                            email,
+                            phone,
+                            academia,
+                            name,
+                            password,
+                            plano,
+                            professor,
+                            dataNascimento,
+                            index,
+                          }),
+                          onOpen(),
+                        ]}
+                      />
+
+                      <Td p={0}>
+                        <DeleteIcon
                           fontSize={20}
-                          onClick={() => [
-                            setDataEdit({
-                              cpf,
-                              email,
-                              phone,
-                              academia,
-                              name,
-                              password,
-                              plano,
-                              professor,
-                              dataNascimento,
-                              index,
-                            }),
-                            onOpen(),
-                          ]}
+                          onClick={() => handleRemove(email)}
                         />
-
-                        <Td p={0}>
-                          <DeleteIcon
-                            fontSize={20}
-                            onClick={() => handleRemove(email)}
-                          />
-                        </Td>
-                      </Tr>
-                    )
-                  )}
-                </Tbody>
-              </Table>
-            </Box>
+                      </Td>
+                    </Tr>
+                  )
+                )}
+              </Tbody>
+            </Table>
           </Box>
-          {isOpen && (
-            <Crud
-              isOpen={isOpen}
-              onClose={onClose}
-              data={data}
-              setData={setData}
-              dataEdit={dataEdit}
-              setDataEdit={setDataEdit}
-            />
-          )}
-        </Flex>
-      </div>
+        </Box>
+        {isOpen && (
+          <Crud
+            isOpen={isOpen}
+            onClose={onClose}
+            data={data}
+            setData={setData}
+            dataEdit={dataEdit}
+            setDataEdit={setDataEdit}
+          />
+        )}
+      </Flex>
     </div>
   );
 };
