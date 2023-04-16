@@ -1,6 +1,6 @@
 import Header from "../../components/Header";
 import Logout from "../../components/Logout";
-import Crud from "../../components/Crud";
+import CrudCustomers from "../../components/CrudCustomers";
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -34,38 +34,36 @@ export const Customers = () => {
   }, [setData]);
 
   const lerAlunos = () => {
-    const token = Cookies.get('auth_token');
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const token = Cookies.get("auth_token");
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const decodedPayload = JSON.parse(atob(base64));
-    
-    const id=decodedPayload.id;
-    const url="/alunos/read/"+id;
+
+    const id = decodedPayload.id;
+    const url = "/alunos/read/" + id;
 
     axiosInstance
-    .get(url)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }
-
-  const handleRemove = (cpf) => {
-
-    const url = '/alunos/delete/'+ cpf;
-
-    axiosInstance
-    .post(url)
-    .then((res) => {
-      console.log('Removido com sucesso');
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .get(url)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
+  const handleRemove = (cpf) => {
+    const url = "/alunos/delete/" + cpf;
+
+    axiosInstance
+      .post(url)
+      .then((res) => {
+        console.log("Removido com sucesso");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div id="main-div">
@@ -181,7 +179,7 @@ export const Customers = () => {
           </Box>
         </Box>
         {isOpen && (
-          <Crud
+          <CrudCustomers
             isOpen={isOpen}
             onClose={onClose}
             data={data}
