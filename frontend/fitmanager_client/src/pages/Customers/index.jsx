@@ -16,7 +16,9 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+import Cookies from "js-cookie";
 import "../../styles/style.css";
+import axiosInstance from "../../instances/axiosInstances";
 
 export const Customers = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,13 +33,39 @@ export const Customers = () => {
     setData(db_costumer);
   }, [setData]);
 
-  const handleRemove = (email) => {
-    const newArray = data.filter((item) => item.email !== email);
+  const lerAlunos = () => {
+    const token = Cookies.get('auth_token');
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const decodedPayload = JSON.parse(atob(base64));
+    
+    const id=decodedPayload.id;
+    const url="/alunos/read/"+id;
 
-    setData(newArray);
+    axiosInstance
+    .get(url)
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
-    localStorage.setItem("cad_cliente", JSON.stringify(newArray));
+  const handleRemove = (cpf) => {
+
+    const url = '/alunos/delete/'+ cpf;
+
+    axiosInstance
+    .post(url)
+    .then((res) => {
+      console.log('Removido com sucesso');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
+
 
   return (
     <div id="main-div">

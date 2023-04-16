@@ -19,10 +19,16 @@ export class AlunoService {
     return attAluno;
   }
 
-  async removerAlunoPorId(id: string) {
-    await this.alunoModel.findByIdAndRemove(id);
+  async removerAlunoPorCpf(cpf: string): Promise<boolean> {
+    try {
+      const alunoRemovido = await this.alunoModel.findOneAndDelete({ cpf: cpf });
+      return !!alunoRemovido; // retorna true se encontrou e removeu o aluno
+    } catch (erro) {
+      console.error(erro);
+      return false; // retorna false se ocorrer um erro
+    }
   }
-
+  
   async lerAlunoPorIdAcad(idAcademia: string){
     const readAluno = await this.alunoModel.findById(idAcademia);
     return readAluno;

@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AlunoService } from '../services/alunos.service';
 import { AlunoDto } from '../dto/alunos.dto';
 
-@Controller('aluno')
+@Controller('alunos')
 export class AlunoController {
   constructor(private alunoService: AlunoService) {}
 
@@ -11,9 +11,9 @@ export class AlunoController {
     return this.alunoService.cadastrarAluno(alunoDto);
   }
 
-  @Post('/delete/:id')
-  async deletarAluno(@Param('id') id:string){
-    return this.alunoService.removerAlunoPorId(id);
+  @Post('/delete/:cpf')
+  async deletarAluno(@Param('cpf') cpf:string){
+    return this.alunoService.removerAlunoPorCpf(cpf);
   }
 
   @Post('/update/:id')
