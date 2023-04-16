@@ -14,6 +14,5 @@ export class UserService {
   async buscarUserPorId(userId:string){
     return this.userModel.findById(userId).exec();
   }
-
   
 }

@@ -37,6 +37,11 @@ h1 a:hover{
     font-size: 56px;
 }
 
+#title:hover{
+    text-decoration: none;
+    color: white;
+}
+
 #fitmanager-logo{
     width: 100px;
     height: 100px ;
@@ -303,4 +308,8 @@ input[type="number"] {
   #cancel-button:hover{
     cursor: pointer;
     text-decoration: underline;
+  }
+
+  .botao a{
+    text-decoration: none;
   }

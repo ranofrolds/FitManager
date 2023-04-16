@@ -22,7 +22,7 @@ export class FuncionarioController {
   }
 
   @Get('/read/:id')
-  async listarFuncionarios(@Param('id') idAcademia:string){
-
+  async lerFuncionarios(@Param('id') id:string){
+    return this.funcionarioService.lerFuncionario(id);
   }
 }

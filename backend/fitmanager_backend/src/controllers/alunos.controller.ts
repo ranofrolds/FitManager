@@ -12,17 +12,17 @@ export class AlunoController {
   }
 
   @Post('/delete/:id')
-  async deletarFuncionario(@Param('id') id:string){
+  async deletarAluno(@Param('id') id:string){
     return this.alunoService.removerAlunoPorId(id);
   }
 
   @Post('/update/:id')
-  async atualizarFuncionario(@Param('id') id:string, @Body() alunoDto: AlunoDto){
+  async atualizarAluno(@Param('id') id:string, @Body() alunoDto: AlunoDto){
     return this.alunoService.atualizarAluno(id, alunoDto);
   }
 
   @Get('/read/:id')
-  async listarFuncionarios(@Param('id') idAcademia:string){
-    
+  async listarAluno(@Param('id') idAcademia:string){
+    return this.alunoService.lerAlunoPorIdAcad(idAcademia);
   }
 }
