@@ -26,12 +26,8 @@ export const Customers = () => {
   const [dataEdit, setDataEdit] = useState({});
 
   useEffect(() => {
-    const db_costumer = localStorage.getItem("cad_cliente")
-      ? JSON.parse(localStorage.getItem("cad_cliente"))
-      : [];
-
-    setData(db_costumer);
-  }, [setData]);
+    lerAlunos();
+  }, []);
 
   const lerAlunos = () => {
     const token = Cookies.get('auth_token');
@@ -46,6 +42,7 @@ export const Customers = () => {
     .get(url)
     .then((res) => {
       console.log(res.data);
+      setData(res.data);
     })
     .catch((err) => {
       console.log(err);
