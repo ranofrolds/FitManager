@@ -54,7 +54,7 @@ const UpdateMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
 
     setData(newDataArray);
 
-    const url = "/manutencao/update/"+id;
+    const url = "/manutencao/update/" + id;
 
     axiosInstance
       .post(url, {
@@ -110,7 +110,7 @@ const UpdateMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
               <Box>
                 <FormLabel>Data Conserto</FormLabel>
                 <Input
-                  type="dataConserto"
+                  type="date"
                   value={dataConserto}
                   onChange={(e) => setDataConserto(e.target.value)}
                 />
