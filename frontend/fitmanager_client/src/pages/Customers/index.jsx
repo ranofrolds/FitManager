@@ -38,11 +38,15 @@ export const Customers = () => {
     const id = decodedPayload.id;
     const url = "/alunos/read/" + id;
 
+    console.log(id);
+
     axiosInstance
       .get(url)
       .then((res) => {
-        console.log(res.data);
-        setData(res.data);
+        if(res.data){
+          console.log(res.data);
+          setData(res.data);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -93,9 +97,6 @@ export const Customers = () => {
                   </Th>
                   <Th maxW={300} fontSize="16px">
                     PHONE
-                  </Th>
-                  <Th maxW={300} fontSize="16px">
-                    ACADEMIA
                   </Th>
                   <Th maxW={300} fontSize="16px">
                     NOME

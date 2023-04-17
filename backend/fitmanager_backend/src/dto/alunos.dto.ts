@@ -21,6 +21,10 @@ export class AlunoDto{
 
   @IsNotEmpty()
   @IsString()
+  readonly academiaId: string;
+
+  @IsNotEmpty()
+  @IsString()
   readonly name: string;
 
   @IsNotEmpty()
@@ -34,6 +38,7 @@ export class AlunoDto{
   @IsNotEmpty()
   @IsString()
   readonly professor: string;
+
 
   // @IsNotEmpty()
   // @IsString()

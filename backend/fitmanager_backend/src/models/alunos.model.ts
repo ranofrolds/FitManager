@@ -15,7 +15,7 @@ export class Aluno extends Document {
   phone: string;
 
   @Prop()
-  academia: string;
+  academiaId: string;
 
   @Prop()
   name: string;
@@ -28,6 +28,7 @@ export class Aluno extends Document {
 
   @Prop()
   professor: string;
+
 
   // @Prop()
   // frequency: string;

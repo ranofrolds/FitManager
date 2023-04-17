@@ -28,10 +28,11 @@ export class AlunoService {
       return false; // retorna false se ocorrer um erro
     }
   }
-  
-  async lerAlunoPorIdAcad(idAcademia: string){
-    const readAluno = await this.alunoModel.findById(idAcademia);
-    return readAluno;
+
+  async lerAlunoPorIdAcad(idAcademia: string) {
+    const alunos = await this.alunoModel.find({ academiaId: idAcademia });
+
+    return alunos;
   }
 
   async cadastrarAluno(alunoDto: AlunoDto) {
@@ -43,9 +44,11 @@ export class AlunoService {
       password,
       plano,
       professor,
+      academiaId,
       dataNascimento,
       phone
     } = alunoDto;
+
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -56,6 +59,7 @@ export class AlunoService {
       password:hashedPassword,
       plano,
       professor,
+      academiaId,
       dataNascimento,
       phone,
     });

@@ -16,13 +16,15 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import axiosInstance from "../../instances/axiosInstances.jsx";
+import axiosInstance from "../instances/axiosInstances.jsx";
+
+import Cookies from "js-cookie";
 
 const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
   const [cpf, setCpf] = useState(dataEdit.cpf || "");
   const [email, setEmail] = useState(dataEdit.email || "");
   const [phone, setPhone] = useState(dataEdit.phone || "");
-  const [academia, setAcademia] = useState(dataEdit.academia || "");
+  const [academiaId, setAcademiaId] = useState(dataEdit.academiaId || "");
   const [name, setName] = useState(dataEdit.name || "");
   const [password, setPassword] = useState(dataEdit.password || "");
   const [plano, setPlano] = useState(dataEdit.plano || "");
@@ -32,11 +34,19 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
   );
 
   const handleSave = () => {
+    const token = Cookies.get("auth_token");
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const decodedPayload = JSON.parse(atob(base64));
+
+    const id = decodedPayload.id;
+    setAcademiaId(id)
+    
     if (
       !cpf ||
       !email ||
       !phone ||
-      !academia ||
+      !academiaId ||
       !name ||
       !password ||
       !plano ||
@@ -57,7 +67,7 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
             cpf,
             email,
             phone,
-            academia,
+            academiaId,
             name,
             password,
             plano,
@@ -80,6 +90,7 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
         password,
         plano,
         professor,
+        academiaId,
         dataNascimento,
         phone,
       })
@@ -136,14 +147,6 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
                   type="text"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                />
-              </Box>
-              <Box>
-                <FormLabel>Academia</FormLabel>
-                <Input
-                  type="text"
-                  value={academia}
-                  onChange={(e) => setAcademia(e.target.value)}
                 />
               </Box>
               <Box>
