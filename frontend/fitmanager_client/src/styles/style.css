@@ -2,7 +2,18 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
+
+h1 a{
+    text-decoration: none;
+    color: white;
+}
+
+h1 a:hover{
+    cursor: pointer;
+}
+
 
 #main-div{
     display: flex;
@@ -22,15 +33,20 @@ body{
 }
 
 #title{
-    margin-top: 100px;
+    margin-top: 80px;
     font-size: 56px;
+}
+
+#title:hover{
+    text-decoration: none;
+    color: white;
 }
 
 #fitmanager-logo{
     width: 100px;
     height: 100px ;
     position: relative;
-    top: 80px;
+    top: 60px;
 }
 
 #subtitle{
@@ -45,16 +61,10 @@ h2 span{
     text-underline-offset: 4px;
 }
 
-#container-login h2{
-    position: relative;
-    top: 20px;
-}
-
 #container-login{
-    position: relative;
     width: 450px;
     height: auto;
-    padding-bottom: 50px;
+    padding: 20px 10px 70px 10px;
     background-color: white;
     border-radius: 16px;
     display: flex;
@@ -64,9 +74,11 @@ h2 span{
 }
 
 #container-login h2{
-    font-size: 2em;
+    font-size: 40px;
     text-align: center;
     color: #1b2027;
+    position: relative;
+    top: 20px;
 }
 
 .input-box{
@@ -151,6 +163,11 @@ h2 span{
     transform: scale(1.1);
 }
 
+.escrita-botao{
+    text-decoration: none;
+    color: white;
+}
+
 #register-div{
     color: #1b2027;
     display: flex;
@@ -168,3 +185,147 @@ h2 span{
 #register-div p a:hover{
     text-decoration: underline;
 }
+
+/* Section Component*/
+
+.section-grid{
+    display: flex;
+    flex-direction: column;
+}
+
+.section-div button{
+    border: none;
+    border-radius: 16px;
+    background-color: #ff5146;
+    color: white;
+    height: 84px;
+    width: 300px;
+    margin: 20px;
+    position: relative;
+    top: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.section-div button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.section-title button{
+    position: relative;
+    font-size: 32px;
+}
+
+/* Workers Section */
+
+#main-div h3{
+    font-size: 44px;
+    margin: 0;
+    text-decoration: underline;
+    text-decoration-color: #ff5146;
+}
+
+#logout-button{
+    width: 120px;
+    height: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+    border-radius: 16px;
+    border: none;
+}
+
+#logout-button:hover{
+    text-decoration: dashed;
+    cursor: pointer;
+}
+
+.white-box{
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 10px;
+}
+
+.white-box h3{
+    color: #1b2027;
+}
+
+.modal-body{
+    color: #1b2027;
+}
+
+.white-flex{
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 10px;
+}
+
+.logout-div{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Remover as setas do input de number */
+input[type="number"] {
+    -moz-appearance: textfield; /* para Firefox */
+    appearance: textfield;
+  }
+  
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  #save-button{
+    font-size: 24px;
+    color: white;
+    background-color: #ff5146;
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    width: 100px;
+    margin-right: 10px;
+    transition: .3s;
+  }
+
+  #save-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  #cancel-button{
+    font-size: 20px;
+    color: #1b2027;
+    background-color: transparent;
+    border: none;
+  }
+
+  #cancel-button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .botao a{
+    text-decoration: none;
+  }

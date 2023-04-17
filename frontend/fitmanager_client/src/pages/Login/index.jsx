@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Header from "../../components/Header.jsx";
-import axios from "axios";
+import axiosInstance from "../../instances/axiosInstances.jsx";
+import Cookies from "js-cookie";
 
 import "../../styles/style.css";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8000/auth/login", {
+    axiosInstance
+      .post("/auth/login", {
         email: email,
-        password
+        password: password,
       })
       .then((res) => {
+        const thirtyMinutes = 30 * 60 * 1000; // em milissegundos
+        const expirationDate = new Date(Date.now() + thirtyMinutes);
+
+        const token = res.data.token;
+
+        Cookies.set("auth_token", token, { expires: expirationDate });
+
         console.log(res);
+
+        navigate("/home");
       })
       .catch((err) => {
         console.log(err);
@@ -64,10 +75,12 @@ export const Login = () => {
             <label>
               <input type="checkbox" /> Lembre-se de mim
             </label>
-            <a href="#">Esqueceu a senha?</a>
+            <a href>Esqueceu a senha?</a>
           </div>
           <button type="submit" class="botao">
-            Entrar
+            <Link class="escrita-botao" className="text-white">
+              Entrar
+            </Link>
           </button>
           <div id="register-div">
             <p>

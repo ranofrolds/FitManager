@@ -1,0 +1,12 @@
+{
+    "name": "fitmanager",
+    "version": "1.0.0",
+    "scripts":{
+        "start:backend": "cd backend/fitmanager_backend && nest start",
+        "start:frontend": "cd frontend/fitmanager_client && npm start",
+        "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    },
+    "dependencies": {
+      "concurrently": "^8.0.0"
+    }
+  }

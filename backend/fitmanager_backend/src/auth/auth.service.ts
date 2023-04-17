@@ -14,7 +14,7 @@ export class AuthService {
     @InjectModel(User.name)
     private userModel: Model<User>,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async signUp(signUpDto: SignUpDto): Promise<{ token: string }> {
     const { cnpj, name, email, password } = signUpDto;
@@ -49,7 +49,7 @@ export class AuthService {
       throw new UnauthorizedException('Invalid email or password');
     }
 
-   
+
 
     const token = this.jwtService.sign({ id: user._id });
 
