@@ -21,20 +21,19 @@ export class ManutencaoService {
     await this.manutencaoModel.findByIdAndRemove(id);
   }
 
-  async lerManutencao(id: string){
-    const readManutencao = await this.manutencaoModel.find();
-    if(!readManutencao || readManutencao.length == 0){
-      throw new NotFoundException("Manutencao not found")
-    }
-    return readManutencao;
+  async lerManutencaoPorIdAcademia(id: string){
+    const alunos = await this.manutencaoModel.find({ academiaId: id });
+
+    return alunos;
   }
 
   async criarManutencao(manutencaoDto: ManutencaoDto){
-    const { cnpjAcad, equipamento, phoneEmpresa } = manutencaoDto;
+    const { equipamento, phoneEmpresa, academiaId, dataConserto } = manutencaoDto;
     const manutencao = await this.manutencaoModel.create({
-      cnpjAcad,
       equipamento,
-      phoneEmpresa
+      phoneEmpresa,
+      academiaId,
+      dataConserto
     });
   }
 }

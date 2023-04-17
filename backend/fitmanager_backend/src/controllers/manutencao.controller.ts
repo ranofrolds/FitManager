@@ -23,6 +23,6 @@ export class ManutencaoController {
 
   @Get('/read/:id')
   async lerManutencao(@Param('id') id:string){
-    return this.manutencaoService.lerManutencao(id);
+    return this.manutencaoService.lerManutencaoPorIdAcademia(id);
   }
 }

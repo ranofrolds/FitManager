@@ -38,7 +38,7 @@ export const Maintenance = () => {
     const decodedPayload = JSON.parse(atob(base64));
 
     const id = decodedPayload.id;
-    const url = "/alunos/read/" + id;
+    const url = "/manutencao/read/" + id;
 
     console.log(id);
 
@@ -58,7 +58,7 @@ export const Maintenance = () => {
   const handleRemove = (id) => {
     const newArray = data.filter((item) => item.id !== id);
     setData(newArray);
-    const url = "/alunos/delete/" + id;
+    const url = "/manutencao/delete/" + id;
 
     axiosInstance
       .post(url)

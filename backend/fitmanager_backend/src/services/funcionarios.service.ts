@@ -13,15 +13,23 @@ export class FuncionarioService {
     private funcionarioModel: Model<Funcionario>,
   ) { }
 
-  async atualizarFuncionario(id: string, funcionarioDto: FuncionarioDto): Promise<Funcionario> {
-    const attFuncionario = await this.funcionarioModel.findByIdAndUpdate(id, funcionarioDto, { new: true }).exec();
+  async atualizarFuncionario(cpf: string, funcionarioDto: FuncionarioDto): Promise<Funcionario> {
+    const attFuncionario = await this.funcionarioModel
+      .findOneAndUpdate({ cpf }, funcionarioDto, { new: true })
+      .exec();
     return attFuncionario;
   }
 
-  async removerFuncionarioPorId(id: string){
-    await this.funcionarioModel.findByIdAndRemove(id);
-  }
+  async removerFuncionarioPorCpf(cpf: string): Promise<boolean> {
+    try {
+      const funcionarioRemovido = await this.funcionarioModel.findOneAndDelete({ cpf: cpf });
+      return !!funcionarioRemovido; // retorna true se encontrou e removeu o funcionario
+    } catch (erro) {
+      console.error(erro);
+      return false; // retorna false se ocorrer um erro
+    }
 
+  }
   async criarFuncionario(funcionarioDto: FuncionarioDto){
     const { cpf, name, email, password, salario, category, dataNascimento, phone } = funcionarioDto;
 
@@ -39,10 +47,9 @@ export class FuncionarioService {
     });
   }
 
-  async lerFuncionario(id: string){
-    const readFuncionario = await this.funcionarioModel.find();
-    if(!readFuncionario || readFuncionario.length == 0){
-      throw new NotFoundException("Funcionario not found")
-    }
+  async lerFuncionarioPorIdAcad(idAcademia: string) {
+    const funcionarios = await this.funcionarioModel.find({ academiaId: idAcademia });
+
+    return funcionarios;
   }
 }

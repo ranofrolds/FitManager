@@ -30,8 +30,7 @@ const UpdateMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const decodedPayload = JSON.parse(atob(base64));
 
-    const id = decodedPayload.id;
-    setAcademiaId(id);
+    setAcademiaId(decodedPayload.id);
 
     if (!id || !phoneEmpresa || !academiaId || !equipamento || !dataConserto)
       return;
@@ -55,11 +54,10 @@ const UpdateMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
 
     setData(newDataArray);
 
-    const url = "/alunos/create";
+    const url = "/manutencao/update/"+id;
 
     axiosInstance
       .post(url, {
-        id,
         equipamento,
         dataConserto,
         academiaId,

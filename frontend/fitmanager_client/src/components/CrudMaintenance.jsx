@@ -55,11 +55,10 @@ const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
 
     setData(newDataArray);
 
-    const url = "/alunos/create";
+    const url = "/manutencao/create";
 
     axiosInstance
       .post(url, {
-        id,
         equipamento,
         dataConserto,
         academiaId,

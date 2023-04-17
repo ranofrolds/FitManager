@@ -6,7 +6,7 @@ import { Document } from 'mongoose';
 })
 export class Manutencao extends Document {
   @Prop({ unique: [true, 'Duplicate cnpj entered'] })
-  cnpjAcad: string;
+  academiaId: string;
 
   @Prop({ unique: [true, 'Duplicate phone entered'] })
   phoneEmpresa: string;
@@ -14,6 +14,8 @@ export class Manutencao extends Document {
   @Prop()
   equipamento: string;
 
+  @Prop()
+  dataConserto: string;
 }
 
 export const ManutencaoSchema = SchemaFactory.createForClass(Manutencao);

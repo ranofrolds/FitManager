@@ -11,5 +11,9 @@ export class ManutencaoDto{
 
   @IsNotEmpty()
   @IsString()
-  readonly cnpjAcad: string;
+  readonly academiaId: string;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly dataConserto: string;
 }
