@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import Logout from "../../components/Logout";
 import CrudCustomers from "../../components/CrudCustomers";
+import UpdateCustomers from "../../components/UpdateCustomers";
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import {
   Box,
@@ -24,6 +25,7 @@ export const Customers = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState([]);
   const [dataEdit, setDataEdit] = useState({});
+  const [opcao, setOpcao] = useState();
 
   useEffect(() => {
     lerAlunos();
@@ -81,7 +83,10 @@ export const Customers = () => {
         fontSize="20px"
       >
         <Box maxW={1450} w="100%" h="100vh" py={10} px={2}>
-          <Button colorScheme="red" onClick={() => [setDataEdit({}), onOpen()]}>
+          <Button
+            colorScheme="red"
+            onClick={() => [setOpcao("novo"), setDataEdit({}), onOpen()]}
+          >
             NOVO CADASTRO
           </Button>
 
@@ -165,6 +170,7 @@ export const Customers = () => {
                         <EditIcon
                           fontSize={20}
                           onClick={() => [
+                            setOpcao("atualizar"),
                             setDataEdit({
                               cpf,
                               email,
@@ -193,8 +199,18 @@ export const Customers = () => {
             </Table>
           </Box>
         </Box>
-        {isOpen && (
+        {isOpen && opcao==="novo" && (
           <CrudCustomers
+            isOpen={isOpen}
+            onClose={onClose}
+            data={data}
+            setData={setData}
+            dataEdit={dataEdit}
+            setDataEdit={setDataEdit}
+          />
+        )}
+        {isOpen && opcao==="atualizar" && (
+          <UpdateCustomers
             isOpen={isOpen}
             onClose={onClose}
             data={data}
