@@ -21,12 +21,19 @@ export class ManutencaoService {
     await this.manutencaoModel.findByIdAndRemove(id);
   }
 
-  async lerManutencaoPorIdAcademia(id: string){
-    const alunos = await this.manutencaoModel.find({ academiaId: id });
-
-    return alunos;
+  async lerManutencaoPorIdAcademia(id: string) {
+    const manutencoes = await this.manutencaoModel.find({ academiaId: id });
+    
+    // Mapeia os documentos de manutenção para um array de objetos JavaScript simples
+    const manutencoesSimples = manutencoes.map((manutencao) => {
+      const manutencaoSimples = manutencao.toObject(); // Obtém um objeto JavaScript simples
+      manutencaoSimples.id = manutencao._id; // Adiciona o ID do documento como a propriedade "id"
+      delete manutencaoSimples._id; // Remove a propriedade "_id"
+      return manutencaoSimples;
+    });
+  
+    return manutencoesSimples;
   }
-
   async criarManutencao(manutencaoDto: ManutencaoDto){
     const { equipamento, phoneEmpresa, academiaId, dataConserto } = manutencaoDto;
     const manutencao = await this.manutencaoModel.create({
