@@ -35,7 +35,7 @@ export class ManutencaoService {
     return manutencoesSimples;
   }
   async criarManutencao(manutencaoDto: ManutencaoDto){
-    const { equipamento, phoneEmpresa, academiaId, dataConserto } = manutencaoDto;
+    const { equipamento,dataConserto, academiaId,phoneEmpresa } = manutencaoDto;
     const manutencao = await this.manutencaoModel.create({
       equipamento,
       phoneEmpresa,

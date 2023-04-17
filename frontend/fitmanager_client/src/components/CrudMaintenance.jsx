@@ -20,25 +20,21 @@ import Cookies from "js-cookie";
 const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
   const [id] = useState(dataEdit.id || "");
   const [phoneEmpresa, setPhoneEmpresa] = useState(dataEdit.phoneEmpresa || "");
-  const [academiaId, setAcademiaId] = useState(dataEdit.academiaId || "");
   const [equipamento, setEquipamento] = useState(dataEdit.equipamento || "");
   const [dataConserto, setDataConserto] = useState(dataEdit.dataConserto || "");
 
   const handleSave = () => {
     const token = Cookies.get("auth_token");
+    
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const decodedPayload = JSON.parse(atob(base64));
 
-    const id = decodedPayload.id;
-    setAcademiaId(id);
+    const academiaId= decodedPayload.id;
 
-    if (!id || !phoneEmpresa || !academiaId || !equipamento || !dataConserto)
+
+    if ( !phoneEmpresa || !equipamento || !dataConserto)
       return;
-
-    if (cpfAlreadyExists()) {
-      return alert("ID já cadastrado!");
-    }
 
     const newDataArray = !Object.keys(dataEdit).length
       ? [
@@ -72,14 +68,7 @@ const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
       });
 
     onClose();
-  };
-
-  const cpfAlreadyExists = () => {
-    if (dataEdit.id !== id && data?.length) {
-      return data.find((item) => item.id === id);
-    }
-
-    return false;
+    window.location.reload();
   };
 
   return (

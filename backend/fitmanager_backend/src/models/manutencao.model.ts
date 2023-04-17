@@ -5,10 +5,10 @@ import { Document } from 'mongoose';
   timestamps: true,
 })
 export class Manutencao extends Document {
-  @Prop({ unique: [true, 'Duplicate cnpj entered'] })
+  @Prop()
   academiaId: string;
 
-  @Prop({ unique: [true, 'Duplicate phone entered'] })
+  @Prop()
   phoneEmpresa: string;
 
   @Prop()

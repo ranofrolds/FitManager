@@ -33,12 +33,13 @@ export const Maintenance = () => {
 
   const lerManutencoes = () => {
     const token = Cookies.get("auth_token");
+    
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
     const decodedPayload = JSON.parse(atob(base64));
 
-    const idAcade = decodedPayload.id;
-    const url = "/manutencao/read/" + idAcade;
+    const id = decodedPayload.id;
+    const url = "/manutencao/read/" + id;
 
 
     axiosInstance
