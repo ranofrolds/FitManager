@@ -16,6 +16,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import axiosInstance from "../../instances/axiosInstances.jsx";
 
 const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
   const [cpf, setCpf] = useState(dataEdit.cpf || "");
@@ -48,9 +49,6 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
       return alert("CPF já cadastrado!");
     }
 
-    if (Object.keys(dataEdit).length) {
-      data[dataEdit.index] = { name, email };
-    }
 
     const newDataArray = !Object.keys(dataEdit).length
       ? [
@@ -70,6 +68,27 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
       : [...(data ? data : [])];
 
     setData(newDataArray);
+
+    const url = "/alunos/create";
+
+    axiosInstance
+      .post(url,
+        {
+        cpf,
+        name,
+        email,
+        password,
+        plano,
+        professor,
+        dataNascimento,
+        phone,
+      })
+      .then((res) => {
+        console.log("Salvo paciente");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     onClose();
   };

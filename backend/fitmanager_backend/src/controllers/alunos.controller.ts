@@ -16,9 +16,9 @@ export class AlunoController {
     return this.alunoService.removerAlunoPorCpf(cpf);
   }
 
-  @Post('/update/:id')
-  async atualizarAluno(@Param('id') id:string, @Body() alunoDto: AlunoDto){
-    return this.alunoService.atualizarAluno(id, alunoDto);
+  @Post('/update/:cpf')
+  async atualizarAluno(@Param('cpf') cpf:string, @Body() alunoDto: AlunoDto){
+    return this.alunoService.atualizarAluno(cpf, alunoDto);
   }
 
   @Get('/read/:id')

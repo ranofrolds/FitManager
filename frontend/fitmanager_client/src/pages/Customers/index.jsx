@@ -49,6 +49,8 @@ export const Customers = () => {
       });
   };
 
+
+
   const handleRemove = (cpf) => {
     const url = "/alunos/delete/" + cpf;
 
@@ -165,7 +167,9 @@ export const Customers = () => {
                       <Td p={0}>
                         <DeleteIcon
                           fontSize={20}
-                          onClick={() => handleRemove(email)}
+                          onClick={() => 
+                            handleRemove(cpf)
+                          }
                         />
                       </Td>
                     </Tr>
