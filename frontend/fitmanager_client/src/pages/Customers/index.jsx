@@ -76,7 +76,7 @@ export const Customers = () => {
         justify="center"
         fontSize="20px"
       >
-        <Box maxW={1100} w="100%" h="100vh" py={10} px={2}>
+        <Box maxW={1350} w="100%" h="100vh" py={10} px={2}>
           <Button colorScheme="red" onClick={() => [setDataEdit({}), onOpen()]}>
             NOVO CADASTRO
           </Button>
@@ -84,7 +84,7 @@ export const Customers = () => {
           <Box overflowY="auto" height="100%">
             <Table mt="9">
               <Thead>
-                <Tr>
+                <Tr color="black">
                   <Th maxW={300} fontSize="16px">
                     CPF
                   </Th>
@@ -134,37 +134,55 @@ export const Customers = () => {
                       key={index}
                       cursor="pointer "
                       _hover={{ bg: "gray.100" }}
+                      color="black"
                     >
-                      <Td maxW={300}>{cpf}</Td>
-                      <Td maxW={300}>{email}</Td>
-                      <Td maxW={300}>{phone}</Td>
-                      <Td maxW={300}>{academia}</Td>
-                      <Td maxW={300}>{name}</Td>
-                      <Td maxW={300}>{password}</Td>
-                      <Td maxW={300}>{plano}</Td>
-                      <Td maxW={300}>{professor}</Td>
-                      <Td maxW={300}>{dataNascimento}</Td>
+                      <Td maxW={300} fontSize="sm">
+                        {cpf}
+                      </Td>
+                      <Td maxW={300} fontSize="sm">
+                        {email}
+                      </Td>
+                      <Td maxW={300} fontSize="md">
+                        {phone}
+                      </Td>
+                      <Td maxW={300} fontSize="md">
+                        {academia}
+                      </Td>
+                      <Td maxW={300} fontSize="md">
+                        {name}
+                      </Td>
+                      <Td maxW={300} fontSize="sm">
+                        {password}
+                      </Td>
+                      <Td maxW={300} fontSize="md">
+                        {plano}
+                      </Td>
+                      <Td maxW={300} fontSize="md">
+                        {professor}
+                      </Td>
+                      <Td maxW={300} fontSize="md">
+                        {dataNascimento}
+                      </Td>
+                      <Td>
+                        <EditIcon
+                          fontSize={20}
+                          onClick={() => [
+                            setDataEdit({
+                              cpf,
+                              email,
+                              phone,
+                              academia,
+                              name,
+                              password,
+                              plano,
+                              professor,
+                              dataNascimento,
+                              index,
+                            }),
+                            onOpen(),
+                          ]}
+                        />
 
-                      <EditIcon
-                        fontSize={20}
-                        onClick={() => [
-                          setDataEdit({
-                            cpf,
-                            email,
-                            phone,
-                            academia,
-                            name,
-                            password,
-                            plano,
-                            professor,
-                            dataNascimento,
-                            index,
-                          }),
-                          onOpen(),
-                        ]}
-                      />
-
-                      <Td p={0}>
                         <DeleteIcon
                           fontSize={20}
                           onClick={() => 
