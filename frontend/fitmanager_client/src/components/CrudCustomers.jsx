@@ -11,18 +11,41 @@ import {
   FormLabel,
   Input,
   Box,
+  Radio,
+  RadioGroup,
+  Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
 const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
-  const [name, setName] = useState(dataEdit.name || "");
+  const [cpf, setCpf] = useState(dataEdit.cpf || "");
   const [email, setEmail] = useState(dataEdit.email || "");
+  const [phone, setPhone] = useState(dataEdit.phone || "");
+  const [academia, setAcademia] = useState(dataEdit.academia || "");
+  const [name, setName] = useState(dataEdit.name || "");
+  const [password, setPassword] = useState(dataEdit.password || "");
+  const [plano, setPlano] = useState(dataEdit.plano || "");
+  const [professor, setProfessor] = useState(dataEdit.professor || "");
+  const [dataNascimento, setDataNascimento] = useState(
+    dataEdit.dataNascimento || ""
+  );
 
   const handleSave = () => {
-    if (!name || !email) return;
+    if (
+      !cpf ||
+      !email ||
+      !phone ||
+      !academia ||
+      !name ||
+      !password ||
+      !plano ||
+      !professor ||
+      !dataNascimento
+    )
+      return;
 
-    if (emailAlreadyExists()) {
-      return alert("E-mail já cadastrado!");
+    if (cpfAlreadyExists()) {
+      return alert("CPF já cadastrado!");
     }
 
     if (Object.keys(dataEdit).length) {
@@ -30,19 +53,34 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
     }
 
     const newDataArray = !Object.keys(dataEdit).length
-      ? [...(data ? data : []), { name, email }]
+      ? [
+          ...(data ? data : []),
+          {
+            cpf,
+            email,
+            phone,
+            academia,
+            name,
+            password,
+            plano,
+            professor,
+            dataNascimento,
+          },
+        ]
       : [...(data ? data : [])];
-
-    localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
 
     setData(newDataArray);
 
     onClose();
   };
 
-  const emailAlreadyExists = () => {
-    if (dataEdit.email !== email && data?.length) {
-      return data.find((item) => item.email === email);
+  function handlePlanoChange(value) {
+    setPlano(value);
+  }
+
+  const cpfAlreadyExists = () => {
+    if (dataEdit.cpf !== cpf && data?.length) {
+      return data.find((item) => item.cpf === cpf);
     }
 
     return false;
@@ -58,11 +96,11 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
           <ModalBody>
             <FormControl display="flex" flexDir="column" gap={4}>
               <Box>
-                <FormLabel>Nome</FormLabel>
+                <FormLabel>CPF</FormLabel>
                 <Input
                   type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={cpf}
+                  onChange={(e) => setCpf(e.target.value)}
                 />
               </Box>
               <Box>
@@ -71,6 +109,70 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Celular</FormLabel>
+                <Input
+                  type="text"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Academia</FormLabel>
+                <Input
+                  type="text"
+                  value={academia}
+                  onChange={(e) => setAcademia(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Nome</FormLabel>
+                <Input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Senha</FormLabel>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Plano</FormLabel>
+                <RadioGroup onChange={handlePlanoChange} value={plano}>
+                  <Stack spacing={2}>
+                    <Radio name="bronze" value="bronze">
+                      Bronze
+                    </Radio>
+                    <Radio name="silver" value="silver">
+                      Silver
+                    </Radio>
+                    <Radio name="gold" value="gold">
+                      Gold
+                    </Radio>
+                  </Stack>
+                </RadioGroup>
+              </Box>
+              <Box>
+                <FormLabel>Professor</FormLabel>
+                <Input
+                  type="text"
+                  value={professor}
+                  onChange={(e) => setProfessor(e.target.value)}
+                />
+              </Box>
+              <Box>
+                <FormLabel>Data de nascimento</FormLabel>
+                <Input
+                  type="date"
+                  value={dataNascimento}
+                  onChange={(e) => setDataNascimento(e.target.value)}
                 />
               </Box>
             </FormControl>

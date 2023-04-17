@@ -42,20 +42,12 @@ export const Customers = () => {
       .get(url)
       .then((res) => {
         console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-    .get(url)
-    .then((res) => {
-      console.log(res.data);
-      setData(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }
 
   const handleRemove = (cpf) => {
     const url = "/alunos/delete/" + cpf;
