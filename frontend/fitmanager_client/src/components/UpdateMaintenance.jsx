@@ -32,7 +32,7 @@ const UpdateMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
 
     setAcademiaId(decodedPayload.id);
 
-    if (!id || !phoneEmpresa || !academiaId || !equipamento || !dataConserto)
+    if (!phoneEmpresa || !equipamento || !dataConserto)
       return;
 
     if (cpfAlreadyExists()) {
