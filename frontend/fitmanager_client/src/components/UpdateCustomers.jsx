@@ -100,6 +100,7 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
       });
 
     onClose();
+    window.location.reload();
   };
 
   function handlePlanoChange(value) {
