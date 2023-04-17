@@ -23,7 +23,7 @@ const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
   const [academiaId, setAcademiaId] = useState(dataEdit.academiaId || "");
   const [equipamento, setEquipamento] = useState(dataEdit.equipamento || "");
   const [dataConserto, setDataConserto] = useState(dataEdit.dataConserto || "");
-  
+
   const handleSave = () => {
     const token = Cookies.get("auth_token");
     const base64Url = token.split(".")[1];
@@ -110,7 +110,7 @@ const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
               <Box>
                 <FormLabel>Data Conserto</FormLabel>
                 <Input
-                  type="dataConserto"
+                  type="date"
                   value={dataConserto}
                   onChange={(e) => setDataConserto(e.target.value)}
                 />
