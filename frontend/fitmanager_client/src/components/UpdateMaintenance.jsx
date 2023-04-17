@@ -71,6 +71,7 @@ const UpdateMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
       });
 
     onClose();
+    window.location.reload();
   };
 
   const cpfAlreadyExists = () => {
