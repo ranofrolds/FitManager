@@ -78,7 +78,7 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
 
     setData(newDataArray);
 
-    const url = "/alunos/create";
+    const url = "/alunos/update/"+cpf;
 
     axiosInstance
       .post(url, {
