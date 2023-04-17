@@ -12,9 +12,9 @@ export class AlunoService {
     private alunoModel: Model<Aluno>,
   ) {}
 
-  async atualizarAluno(id: string, alunoDto: AlunoDto): Promise<Aluno> {
+  async atualizarAluno(cpf: string, alunoDto: AlunoDto): Promise<Aluno> {
     const attAluno = await this.alunoModel
-      .findByIdAndUpdate(id, alunoDto, { new: true })
+      .findOneAndUpdate({ cpf }, alunoDto, { new: true })
       .exec();
     return attAluno;
   }
