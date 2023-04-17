@@ -18,7 +18,7 @@ import axiosInstance from "../instances/axiosInstances.jsx";
 import Cookies from "js-cookie";
 
 const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
-  const [id, setCpf] = useState(dataEdit.id || "");
+  const [id] = useState(dataEdit.id || "");
   const [phoneEmpresa, setPhoneEmpresa] = useState(dataEdit.phoneEmpresa || "");
   const [academiaId, setAcademiaId] = useState(dataEdit.academiaId || "");
   const [equipamento, setEquipamento] = useState(dataEdit.equipamento || "");
@@ -91,14 +91,6 @@ const CrudMaintenance = ({ data, setData, dataEdit, isOpen, onClose }) => {
           <ModalCloseButton />
           <ModalBody classequipamento="modal-body">
             <FormControl display="flex" flexDir="column" gap={4}>
-              <Box>
-                <FormLabel>ID</FormLabel>
-                <Input
-                  type="text"
-                  value={id}
-                  onChange={(e) => setCpf(e.target.value)}
-                />
-              </Box>
               <Box>
                 <FormLabel>Telefone Empresa</FormLabel>
                 <Input
