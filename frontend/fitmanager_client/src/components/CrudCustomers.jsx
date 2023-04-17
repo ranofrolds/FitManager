@@ -93,7 +93,7 @@ const CrudCustomers = ({ data, setData, dataEdit, isOpen, onClose }) => {
         <ModalContent>
           <ModalHeader>Cadastro de Clientes</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody className="modal-body">
             <FormControl display="flex" flexDir="column" gap={4}>
               <Box>
                 <FormLabel>CPF</FormLabel>
