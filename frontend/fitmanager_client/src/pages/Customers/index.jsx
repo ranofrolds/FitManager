@@ -43,7 +43,7 @@ export const Customers = () => {
     axiosInstance
       .get(url)
       .then((res) => {
-        if(res.data){
+        if (res.data) {
           console.log(res.data);
           setData(res.data);
         }
@@ -53,9 +53,9 @@ export const Customers = () => {
       });
   };
 
-
-
   const handleRemove = (cpf) => {
+    const newArray = data.filter((item) => item.cpf !== cpf);
+    setData(newArray);
     const url = "/alunos/delete/" + cpf;
 
     axiosInstance
@@ -80,7 +80,7 @@ export const Customers = () => {
         justify="center"
         fontSize="20px"
       >
-        <Box maxW={1350} w="100%" h="100vh" py={10} px={2}>
+        <Box maxW={1450} w="100%" h="100vh" py={10} px={2}>
           <Button colorScheme="red" onClick={() => [setDataEdit({}), onOpen()]}>
             NOVO CADASTRO
           </Button>
@@ -147,9 +147,6 @@ export const Customers = () => {
                         {phone}
                       </Td>
                       <Td maxW={300} fontSize="md">
-                        {academia}
-                      </Td>
-                      <Td maxW={300} fontSize="md">
                         {name}
                       </Td>
                       <Td maxW={300} fontSize="sm">
@@ -186,9 +183,7 @@ export const Customers = () => {
 
                         <DeleteIcon
                           fontSize={20}
-                          onClick={() => 
-                            handleRemove(cpf)
-                          }
+                          onClick={() => handleRemove(cpf)}
                         />
                       </Td>
                     </Tr>
